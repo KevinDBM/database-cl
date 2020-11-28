@@ -1,0 +1,17 @@
+version: "3"
+services:
+ db-comparto-libros:
+  image: "postgres:13"
+  container_name: "db_comparto_libros"
+  environment:
+  - POSTGRES_USER=comparto_libros
+  - POSTGRES_PASSWORD=comparto_libros
+  - POSTGRES_DB=comparto_libros
+  ports:
+  - "5001:5432"
+  volumes:
+  - ./data:/var/lib/postgresql/data
+networks:
+  default:
+    external:
+      name: comparto_libros
